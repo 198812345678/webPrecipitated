@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+
+
+    <servlet>
+        <servlet-name>helloWorldServlet</servlet-name>
+        <servlet-class>com.corp.will.servlet.HelloWorldServlet</servlet-class>
+        <!--<async-supported>true</async-supported>-->
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>helloWorldServlet</servlet-name>
+        <url-pattern>/servlet/helloWorld.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>simpleSuspendResumeServlet</servlet-name>
+        <servlet-class>com.corp.will.jetty.jettyContinuation.SimpleSuspendResumeServlet</servlet-class>
+        <!--支持异步的必须-->
+        <!--A filter or servlet of the current chain does not support asynchronous operations-->
+        <async-supported>true</async-supported>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>simpleSuspendResumeServlet</servlet-name>
+        <url-pattern>/jetty/simpleSuspendResumeServlet.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ContinuationsExampleServlet</servlet-name>
+        <servlet-class>com.corp.will.jetty.jettyContinuation.ContinuationsExampleServlet</servlet-class>
+        <async-supported>true</async-supported>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ContinuationsExampleServlet</servlet-name>
+        <url-pattern>/jetty/continuationsExampleServlet.jsp</url-pattern>
+    </servlet-mapping>
+</web-app>
