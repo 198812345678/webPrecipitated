@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
+ * http://blog.csdn.net/pwlazy/article/details/7299719
  * Created by will.wang on 2017/2/25.
  */
 public class SimpleSuspendResumeServlet extends HttpServlet {
@@ -56,6 +57,8 @@ public class SimpleSuspendResumeServlet extends HttpServlet {
             // suspend the request
             continuation.suspend(); // always suspend before registration
 
+//            continuation.setTimeout(2000);
+
             // register with async service. The code here will depend on the
             // the service used (see Jetty HttpClient for example)
             myAsyncHandler.register(new MyHandler() {
@@ -65,6 +68,9 @@ public class SimpleSuspendResumeServlet extends HttpServlet {
                     continuation.resume();
                 }
             });
+
+            //request.setAttribute("results","null");
+            sendMyFirstResponse(response);
             return; // or continuation.undispatch();
         }
 
